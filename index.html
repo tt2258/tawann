@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>IDENTITY</title>
+    <style>
+        body { background: #000; color: #ff0000; text-align: center; font-family: sans-serif; padding-top: 100px; }
+        .box { border: 2px solid red; padding: 20px; display: inline-block; border-radius: 10px; }
+        #text { color: #00ff00; font-size: 24px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>MY IDENTITY 💲</h1>
+        <div id="text">กำลังดึงข้อมูล...</div>
+    </div>
+
+    <script>
+        // ระบบดึงข้อมูลจากไฟล์ JSON ที่บอสเพิ่งสร้าง
+        fetch('data.json')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('text').innerText = data.diary;
+            })
+            .catch(err => { document.getElementById('text').innerText = "โหลดข้อมูลไม่สำเร็จ"; });
+    </script>
+</body>
+</html>
+
